@@ -428,6 +428,8 @@ class ReactExoplayerView extends FrameLayout implements
     }
 
     private void startProgressHandler() {
+        // First remove existing queued messages, so we don't end up with multiple progress events
+        progressHandler.removeMessages(SHOW_PROGRESS);
         progressHandler.sendEmptyMessage(SHOW_PROGRESS);
     }
 
